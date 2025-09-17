@@ -6,7 +6,7 @@ def count_even_non_prime_nums(x):
 	else:
 		count = 0
 		for i in range (2, x, 2):
-			if Math.gcd(x, i) == 1
+			if math.gcd(x, i) == 1:
 				count+=1
 		return count
 
@@ -19,13 +19,17 @@ def max_non_three_digit(x):
 	return max_digit
 
 def find_min_divisor(x):
-	if x <= 1 return None
-	min_divisor = None
+	if x <= 1:
+		return None
+	min_divisor = 10
 	for i in range(2, int(x**0.5)):
 		if x % i == 0:
-			if i > min_divisor:
+			if i < min_divisor:
 				min_divisor = i
-	return min_divisor
+	if min_divisor != 10:
+		return min_divisor
+	else:
+		return None
 
 def sum_of_digits(x):
 	summ = 0
@@ -37,11 +41,12 @@ def sum_of_digits(x):
 
 def product_method(x):
 	x = abs(x)
-	if x <= 1 return None
+	if x <= 1:
+		return None
 	divisor = find_min_divisor(x)
 	dig_sum = sum_of_digits(x)
 	for i in range (x-1, 2, -1):
-		if Math.gcd(x, i) != 1 and i % divisor != 0:
+		if math.gcd(x, i) != 1 and i % divisor != 0:
 			return dig_sum * i
 	return None
 
