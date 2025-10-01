@@ -1,4 +1,4 @@
-def stats(text)
+def stats(text):
     vowels = 'уеыаоэяию'
     cons = 'йцкнгшщзхфвпрлджчсмтб'
     v_count = 0
@@ -21,12 +21,12 @@ def calculate(text):
     avg_cons = c_count / let_count
     return avg_cons - avg_vowels
 
-lines = []
+def task11():
+    lines = []
+    while True:
+        line = input().strip()
+        if not line:
+            break
+        lines.append(line)
+    print(sorted(lines, key=calculate))
 
-while True:
-    line = input().strip()
-    if not line:
-        break
-    lines.append(line)
-
-print(sorted(lines, key=calculate))
