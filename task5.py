@@ -1,16 +1,9 @@
-def isPalindrome(x):
-    return x == x[::-1]
+import re
 
-def count_words(x):
-    return len(x.split())
+def find_dates(text):
+    pattern = r'\b(0?[1-9]|[12][0-9]|3[01])\s+(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)\s+(\d{4})\b'
+    return re.findall(pattern, text)
 
-def count_diff_digits(x):
-    a = []
-    while x > 0:
-        a.append(x % 10)
-        x//= 10
-    return len(set(a))
-
-print(isPalindrome("abcba"))
-print(count_words("Pipi pipi popo popo popo ppopo ppp"))
-print(count_diff_digits(123444444))
+dates = find_dates("вовлыовытос 12 января 1997 13 сентябрь овцарлав 24 сентября 2002")
+for day, month, year in dates:
+    print(f"{day} {month} {year}")
