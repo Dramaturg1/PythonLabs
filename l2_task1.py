@@ -7,7 +7,7 @@ strikes = set()
 for a, b in parties:
     day = a
     while day <= n:
-        weekend = (day -1) % 7 + 1
+        weekend = (day - 1) % 7 + 1
         if weekend != 6 and weekend != 7:
             strikes.add(day)
         day+=b
